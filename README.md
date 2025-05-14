@@ -106,7 +106,7 @@ If you use different destination, please change the corresponding configuration 
 ## Train your own model
 Training command line with 4 GPUs:
 ```
-torchrun --nproc_per_node=4 train.py --config_file ./configs/arcface_r100.py
+torchrun --nproc_per_node=4 train.py --config_file ./configs/arcface_r50_default.py
 ```
 ### ❗Note that, you are not supposed to change any training hyperparameters❗
 
