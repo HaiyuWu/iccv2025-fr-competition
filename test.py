@@ -86,12 +86,12 @@ if __name__ == "__main__":
         "--model", "-model", help="iresnet/vit.", type=str, default="iresnet"
     )
     parser.add_argument(
-        "--mode", "-mode", help="using SE attention [normal/se].", type=str, default="normal"
+        "--mode", "-mode", help="using SE attention [normal/se].", type=str, default="se"
     )
     parser.add_argument(
         "--depth", "-d",
         help="layers size: resnet [18, 34, 50, 100, 152, 200] / vit [s, b, l].",
-        default="100",
+        default="50",
         type=str
     )
     parser.add_argument("--batch_size", "-b", help="Batch size.", default=512, type=int)

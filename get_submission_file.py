@@ -5,6 +5,7 @@ from os import path, makedirs
 from torch.nn import DataParallel
 from model import iresnet, PartialFC_V2, get_vit
 from data import TestDataLoader
+import torchvision.transforms.functional as TF
 from tqdm import tqdm
 
 
@@ -21,7 +22,7 @@ class Extractor(object):
 
     def create_model(self, args):
         if args.model == "iresnet":
-            model = iresnet(args.depth)
+            model = iresnet(args.depth, fp16=True, mode=args.mode)
         elif args.model == "vit":
             model = get_vit(args.depth)
         model.load_state_dict(torch.load(args.model_path))
@@ -31,16 +32,31 @@ class Extractor(object):
         sep = im_path.split("/")
         return f"{sep[-2]}/{sep[-1][:-3]}"
 
+    def l2_norm(self, input: np.array, axis=1):
+        norm = np.linalg.norm(input, 2, axis, True)
+        output = np.divide(input, norm)
+        return output
+
     def extract(self, args):
-        test_loader = TestDataLoader(args.image_paths, args.batch_size, args.workers)
-        for im, im_path in tqdm(test_loader):
-            features = (self.model(im)).cpu().detach().numpy()
-            for i in range(len(features)):
-                im_id = self.get_im_id(im_path[i])
-                save_folder = path.join(args.destination, path.split(im_id)[0])
-                if not path.exists(save_folder):
-                    makedirs(save_folder)
-                np.save(path.join(args.destination, im_id + "npy"), features[i])
+        bs = args.batch_size
+        name = args.image_paths.split("/")[0]
+        features = []
+        images = np.load(args.image_paths)
+        images = ((images / 255.) - 0.5) / 0.5
+        for i in tqdm(range(0, len(images), bs)):
+            im_or = torch.tensor(images[i:i+bs].astype(np.float32))
+            im_flip = torch.tensor(images[i:i+bs][..., ::-1].astype(np.float32))
+            f_or = self.model(im_or).cpu().detach().numpy()
+            f_flip = self.model(im_flip).cpu().detach().numpy()
+            features.append(f_or + f_flip)
+        features = self.l2_norm(np.concatenate(features, axis=0))
+        f1 = features[0::2]
+        f2 = features[1::2]
+
+        diff = np.subtract(f1, f2)
+        res = np.sum(np.square(diff), 1)
+        print(f"./{name}_result.txt")
+        np.savetxt(f"./{name}_result.txt", res)
 
 
 if __name__ == "__main__":
@@ -54,15 +70,17 @@ if __name__ == "__main__":
         "--model", "-model", help="iresnet/vit.", type=str, default="iresnet"
     )
     parser.add_argument(
+        "--mode", "-mode", help="using SE attention [normal/se].", type=str, default="se"
+    )
+    parser.add_argument(
         "--depth", "-d",
         help="layers size: resnet [18, 34, 50, 100, 152, 200] / vit [s, b, l].",
-        default="100",
+        default="50",
         type=str
     )
     parser.add_argument("--batch_size", "-b", help="Batch size.", default=512, type=int)
     parser.add_argument("--workers", "-w", help="workers.", default=2, type=int)
     parser.add_argument("--image_paths", "-i", help="A file contains image paths.", type=str)
-    parser.add_argument("--destination", "-dest", help="destination.", type=str, default="./features")
 
     args = parser.parse_args()
 
