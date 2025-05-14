@@ -39,7 +39,7 @@ class Extractor(object):
 
     def extract(self, args):
         bs = args.batch_size
-        name = args.image_paths.split("/")[0]
+        name = args.image_paths.split("/")[-2]
         features = []
         images = np.load(args.image_paths)
         images = ((images / 255.) - 0.5) / 0.5
@@ -55,8 +55,8 @@ class Extractor(object):
 
         diff = np.subtract(f1, f2)
         res = np.sum(np.square(diff), 1)
-        print(f"./{name}_result.txt")
-        np.savetxt(f"./{name}_result.txt", res)
+        print(f"./{name}_{args.dataset_scale}_result.txt")
+        np.savetxt(f"./{name}_{args.dataset_scale}_result.txt", res)
 
 
 if __name__ == "__main__":
@@ -79,8 +79,9 @@ if __name__ == "__main__":
         type=str
     )
     parser.add_argument("--batch_size", "-b", help="Batch size.", default=512, type=int)
-    parser.add_argument("--workers", "-w", help="workers.", default=2, type=int)
     parser.add_argument("--image_paths", "-i", help="A file contains image paths.", type=str)
+    parser.add_argument("--dataset_scale", "-scale", help="scale of the dataset.", choices=["10K", "20K", "100K"],
+                        type=str, required=True)
 
     args = parser.parse_args()
 

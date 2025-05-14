@@ -84,10 +84,23 @@ An example of the content in result.txt
 8.933541774749755859e-01
 8.956598639488220215e-01
 ```
-4. Once you submit the testA_result.txt or testB_result.txt to [Codalab](), the accuracy will be automatically calculated and reported.
+4. Once you submit the testA_result.txt or testB_result.txt to [Codalab](https://codalab.lisn.upsaclay.fr/competitions/10221), the accuracy will be automatically calculated and reported.
 5. Have fun!
 ## Dataset preparation
+For your convenience, we provide the link of existing synthetic FR datasets for you to have an easy start. The accuracy values of 0.5M scale are copied from the original paper for your reference. 
+
+| Model name | Paper link | Accuracy | Download link |
+|------------|------------|----------|--------------|
+| Vec2Face | https://arxiv.org/abs/2409.02979 | 92.00 | [GitHub](https://github.com/HaiyuWu/vec2face) |
+| DCFace | https://arxiv.org/abs/2304.07060 | 89.56 | [GitHub](https://github.com/mk-minchul/dcface) |
+| IDiff-Face | https://arxiv.org/abs/2308.04995 | 88.20 | [GitHub](https://github.com/fdbtrs/idiff-face) |
+| GANDiffFace | https://arxiv.org/abs/2305.19962 | - | [GitHub](https://github.com/PietroMelzi/GANDiffFace) |
+| DigiFace | https://arxiv.org/abs/2210.02579 | - | [GitHub](https://github.com/microsoft/DigiFace1M) |
+| SFace | https://arxiv.org/abs/2206.10520 | 77.71 | [GitHub](https://github.com/fdbtrs/SFace-Privacy-friendly-and-Accurate-Face-Recognition-using-Synthetic-Data) |
+| SynFace | https://arxiv.org/abs/2108.07960 | 74.75 | [GitHub](https://github.com/haibo-qiu/SynFace) |
+Note that [CemiFace](https://github.com/szlbiubiubiu/CemiFace) can be a candidate, but you must drop the real identities out of the dataset first.
 ### Training sets
+
 We support using .txt file to train the model. Using [file_path_extractor.py](./file_path_extractor.py) to get all the image paths and replacing the path in [./configs/arcface_r50_default.py](./configs/arcface_r50_default.py).
 ```python
 config.train_source = "path/to/.txt/file"
