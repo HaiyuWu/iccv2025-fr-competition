@@ -12,8 +12,8 @@ This repository provides the FR training code for synthetic FR dataset generatio
 ## 📋Guidance table
 <!--ts-->
 - [Competition](#competition)
-  * [test resources](#competition-resources)
-  * [guidance](#competition-guidance)
+  * [Test resources](#test-resources)
+  * [Submission guidance](#submission-guidance)
 - [Dataset preparation](#dataset-preparation)
   * [Training sets](#training-sets)
   * [Test sets](#test-sets)
