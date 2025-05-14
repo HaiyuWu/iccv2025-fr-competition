@@ -83,7 +83,6 @@ An example of content in result.txt
 1.698274970054626465e+00
 8.933541774749755859e-01
 8.956598639488220215e-01
-
 ```
 4. Once you submit the testA_result.txt or testB_result.txt to [Codalab](), the accuracy will be automatically calculated and reported.
 5. Have fun!
