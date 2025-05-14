@@ -41,7 +41,9 @@ pip install -r requirements.txt
 There are two test sets used in the competition, testA and testB, where **testA** is for getting the sense of the dataset quality and **testB** is for the determination of challenge awards.
 - TestA: [Google Drive](https://drive.google.com/file/d/1lnTrlXOOyKA-RcgKxGc-jpugTY6Dsh9y/view?usp=drive_link); [百度云](https://pan.baidu.com/s/1_1Ct3N-igm92e7832iBjsw) [提取码: jyyr]
 - TestB: Reserved for now.
-
+### Synthetic dataset generation requirements
+- The dataset scale can be 10K IDs (up to 0.5M images), 20K IDs (up to 1M images), and 100K IDs (up to 5M images).
+- **No real identities.**
 ### Submission guidance
 1. After downloading the testA.xz / testB.xz, please referring to the given command line to extract the test set.
 ```bash
@@ -85,7 +87,7 @@ An example of the content in result.txt
 8.933541774749755859e-01
 8.956598639488220215e-01
 ```
-4. Once you submit the testA_result.txt or testB_result.txt to [Codalab](https://codalab.lisn.upsaclay.fr/competitions/10221), the accuracy will be automatically calculated and reported.
+4. Once you submit the testA_scale_result.txt or testB_scale_result.txt to [Codalab](https://codalab.lisn.upsaclay.fr/competitions/10221), the accuracy will be automatically calculated and reported. **Note that datasets with different scales will be reported separately.**
 5. Have fun!
 ## Dataset preparation
 For your convenience, we provide the link of existing synthetic FR datasets for you to have an easy start. The accuracy values of 0.5M scale are copied from the original paper for your reference. 
