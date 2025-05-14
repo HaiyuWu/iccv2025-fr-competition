@@ -18,7 +18,7 @@ This repository provides the FR training code for synthetic FR dataset generatio
 - [Dataset preparation](#dataset-preparation)
   * [Training sets](#training-sets)
   * [Test sets](#test-sets)
-- [Train your own model](#train-your-own-model)
+- [FR model training](#fr-model-training)
 - [Acknowledgement](#acknowledgement)
 - [License](#license)
   <!--te-->
@@ -118,7 +118,7 @@ python3 utils/prepare_test_images.py \
 --datasets lfw cfp_fp agedb_30 calfw cplfw
 ```
 If you use different destination, please change the corresponding configuration in [./configs/arcface_r50_default.py](./configs/arcface_r50_default.py).
-## Train your own model
+## FR model training
 Training command line with 4 GPUs:
 ```
 torchrun --nproc_per_node=4 train.py --config_file ./configs/arcface_r50_default.py
