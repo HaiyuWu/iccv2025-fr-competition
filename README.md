@@ -106,7 +106,14 @@ Note that [CemiFace](https://github.com/szlbiubiubiu/CemiFace) can be a candidat
 ### Training sets
 
 We support using .txt file to train the model. Using [file_path_extractor.py](./file_path_extractor.py) to get all the image paths and replacing the path in [./configs/arcface_r50_default.py](./configs/arcface_r50_default.py).
-```python
+```bash
+# usage of file_path_extractor.py
+python3 file_path_extractor.py \
+-s parent/folder/path/of/your/dataset \
+-d destination \
+-sfn filename \
+-end_with jpg
+# replacement at arcface_r50_default.py
 config.train_source = "path/to/.txt/file"
 ```
 **Please ensure that only image files are inside the resource folder when using file_path_extract.py.**
