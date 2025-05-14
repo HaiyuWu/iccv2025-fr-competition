@@ -38,7 +38,7 @@ pip install -r requirements.txt
 ## ⚔Competition
 ### Test resources
 There are two test sets used in the competition, testA and testB, where **testA** is for getting the sense of the dataset quality and **testB** is for the determination of challenge awards.
-- TestA: [Google Drive](https://drive.google.com/file/d/1lnTrlXOOyKA-RcgKxGc-jpugTY6Dsh9y/view?usp=drive_link); [百度云](https://pan.baidu.com/s/1_1Ct3N-igm92e7832iBjsw) [提取码: jyyr]\
+- TestA: [Google Drive](https://drive.google.com/file/d/1lnTrlXOOyKA-RcgKxGc-jpugTY6Dsh9y/view?usp=drive_link); [百度云](https://pan.baidu.com/s/1_1Ct3N-igm92e7832iBjsw) [提取码: jyyr]
 - TestB: Reserved for now.
 
 ### Submission guidance
