@@ -53,7 +53,7 @@ python3 get_submission_file.py \
 --model_path path/of/the/weights \
 --image_paths testA/images.npy
 ```
-An example of content in result.txt
+An example of the content in result.txt
 ```text
 1.663888216018676758e+00
 1.565627694129943848e+00
