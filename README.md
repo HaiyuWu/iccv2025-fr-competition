@@ -3,20 +3,18 @@
 
 This repository provides the FR training code for synthetic FR dataset generation competition in DataCV workshop @ ICCV2025.
 
- 
+
 ### What is provided?
 - [x] A distributed training framework 
 - [x] A list of standard test sets
 - [x] A default configuration file for a fair comparison
 
-### TODO
-- [ ] test set preparation
-- [ ] test code for submission
 ## Guidance table
 <!--ts-->
 - [Dataset preparation](#dataset-preparation)
   * [Training sets](#training-sets)
   * [Test sets](#test-sets)
+  * [Test sets for competition](#competition-resources)
 - [Train your own model](#train-your-own-model)
 - [Test your own model](#test-your-own-model)
 - [Get the submission file](#get-the-submission-file)
@@ -55,7 +53,11 @@ python3 utils/prepare_test_images.py \
 --datasets lfw cfp_fp agedb_30 calfw cplfw
 ```
 If you use different destination, please change the corresponding configuration in [./configs/arcface_r50_default.py](./configs/arcface_r50_default.py).
-
+### Competition resources
+There are two test sets used in the competition, testA and testB, where **testA** is for getting the sense of the dataset quality and **testB** is for the determination of challenge awards.\
+TestA: [Google Drive](https://drive.google.com/file/d/1lnTrlXOOyKA-RcgKxGc-jpugTY6Dsh9y/view?usp=drive_link); [百度云]()\
+TestB: Reserved for now. \
+Please run 
 ## Train your own model
 Training command line with 4 GPUs:
 ```
@@ -76,10 +78,7 @@ python3 test.py \
 ```
 python3 get_submission_file.py \
 --model_path path/of/the/weights \
---depth 50 \
---mode se \
---val_list lfw cfp_fp agedb_30 calfw cplfw \
---val_source ./test_sets
+--image_paths testA/images.npy
 ```
 
 ### Acknowledgement
