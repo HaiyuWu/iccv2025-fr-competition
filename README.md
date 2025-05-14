@@ -38,9 +38,9 @@ pip install -r requirements.txt
 ```
 ## ⚔Competition
 ### Test resources
-There are two test sets used in the competition, testA and testB, where **testA** is for getting the sense of the dataset quality and **testB** is for the determination of challenge awards.
-- TestA: [Google Drive](https://drive.google.com/file/d/1lnTrlXOOyKA-RcgKxGc-jpugTY6Dsh9y/view?usp=drive_link); [百度云](https://pan.baidu.com/s/1_1Ct3N-igm92e7832iBjsw) [提取码: jyyr]
-- TestB: Reserved for now.
+There are two test sets used in the competition, testA and testB, where **test A** is for getting the sense of the dataset quality and **test B** is for the determination of challenge awards.
+- Test A: [Google Drive](https://drive.google.com/file/d/1lnTrlXOOyKA-RcgKxGc-jpugTY6Dsh9y/view?usp=drive_link); [百度云](https://pan.baidu.com/s/1_1Ct3N-igm92e7832iBjsw) [提取码: jyyr]
+- Test B: Reserved for now.
 ### Synthetic dataset generation requirements
 - The dataset scale can be 10K IDs (up to 0.5M images), 20K IDs (up to 1M images), and 100K IDs (up to 5M images).
 - **No real identities.**
