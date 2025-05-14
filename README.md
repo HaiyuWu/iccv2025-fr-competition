@@ -1,7 +1,7 @@
 
 # DataCV Challenge @ ICCV 2025 📢
 
-This repository provides the FR training code for synthetic FR dataset generation competition in DataCV workshop @ ICCV2025.
+This repository provides the FR training code for synthetic FR dataset generation competition in [DataCV workshop @ ICCV2025]().
 
 ### What is provided?
 - [x] Test sets for competition
