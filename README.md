@@ -1,28 +1,28 @@
 
-# DataCV Challenge @ ICCV 2025
+# DataCV Challenge @ ICCV 2025 📢
 
 This repository provides the FR training code for synthetic FR dataset generation competition in DataCV workshop @ ICCV2025.
 
-
 ### What is provided?
+- [x] Test sets for competition
 - [x] A distributed training framework 
 - [x] A list of standard test sets
 - [x] A default configuration file for a fair comparison
 
-## Guidance table
+## 📋Guidance table
 <!--ts-->
+- [Competition](#competition)
+  * [test resources](#competition-resources)
+  * [guidance](#competition-guidance)
 - [Dataset preparation](#dataset-preparation)
   * [Training sets](#training-sets)
   * [Test sets](#test-sets)
-  * [Test sets for competition](#competition-resources)
 - [Train your own model](#train-your-own-model)
-- [Test your own model](#test-your-own-model)
-- [Get the submission file](#get-the-submission-file)
 - [Acknowledgement](#acknowledgement)
 - [License](#license)
   <!--te-->
 
-## Environment
+## 📦Environment
 I suggest you to use Anaconda to better control the environments
 ```
 conda create -n fr_training python=3.8
@@ -35,7 +35,26 @@ git clone https://github.com/HaiyuWu/iccv2025-fr-competition.git
 cd ./iccv2025-fr-competition
 pip install -r requirements.txt
 ```
+## ⚔Competition
+### Test resources
+There are two test sets used in the competition, testA and testB, where **testA** is for getting the sense of the dataset quality and **testB** is for the determination of challenge awards.\
+TestA: [Google Drive](https://drive.google.com/file/d/1lnTrlXOOyKA-RcgKxGc-jpugTY6Dsh9y/view?usp=drive_link); [百度云](https://pan.baidu.com/s/1_1Ct3N-igm92e7832iBjsw) [提取码: jyyr]\
+TestB: Reserved for now.
 
+### Submission guidance
+1. After downloading the testA.xz / testB.xz, please referring to the given command line to extract the test set.
+```bash
+python extract_test_file.py testA.xz testA
+```
+2. Train your own face recognition model. Please read [training guidance](#train-your-own-model) carefully!
+3. To get the result file for submission, please referring to the given command line to get the result file.
+```
+python3 get_submission_file.py \
+--model_path path/of/the/weights \
+--image_paths testA/images.npy
+```
+4. Once you submit the testA_result.txt or testB_result.txt to [Codalab](), the accuracy will be automatically calculated and reported.
+5. Have fun!
 ## Dataset preparation
 ### Training sets
 We support using .txt file to train the model. Using [file_path_extractor.py](./file_path_extractor.py) to get all the image paths and replacing the path in [./configs/arcface_r50_default.py](./configs/arcface_r50_default.py).
@@ -53,33 +72,12 @@ python3 utils/prepare_test_images.py \
 --datasets lfw cfp_fp agedb_30 calfw cplfw
 ```
 If you use different destination, please change the corresponding configuration in [./configs/arcface_r50_default.py](./configs/arcface_r50_default.py).
-### Competition resources
-There are two test sets used in the competition, testA and testB, where **testA** is for getting the sense of the dataset quality and **testB** is for the determination of challenge awards.\
-TestA: [Google Drive](https://drive.google.com/file/d/1lnTrlXOOyKA-RcgKxGc-jpugTY6Dsh9y/view?usp=drive_link); [百度云]()\
-TestB: Reserved for now. \
-Please run 
 ## Train your own model
 Training command line with 4 GPUs:
 ```
 torchrun --nproc_per_node=4 train.py --config_file ./configs/arcface_r100.py
 ```
 ### ❗Note that, you are not supposed to change any training hyperparameters❗
-## Test your own model
-For CosFace, SphereFace, ArcFace, CurricularFace, UniFace, adding ```--add_flip``` option to test. For AdaFace, adding ```--add_norm``` option to test.
-```
-python3 test.py \
---model_path path/of/the/weights \
---depth 50 \
---mode se \
---val_list lfw cfp_fp agedb_30 calfw cplfw \
---val_source ./test_sets
-```
-## Get the submission file
-```
-python3 get_submission_file.py \
---model_path path/of/the/weights \
---image_paths testA/images.npy
-```
 
 ### Acknowledgement
 The code is mainly based one [SOTA-Face-Recognition-Train-and-Test](https://github.com/HaiyuWu/SOTA-Face-Recognition-Train-and-Test)
