@@ -4,9 +4,10 @@
 This repository provides the FR training code for synthetic FR dataset generation competition in [DataCV workshop @ ICCV2025]().
 
 ### What is provided?
-- [x] Test sets for competition
-- [x] A distributed training framework 
-- [x] A list of standard test sets
+- [x] Test sets for competition ([click](#competition))
+- [x] A distributed training framework
+- [x] A list of synthetic FR training sets ([click](#dataset-preparation))
+- [x] A list of standard test sets ([click](#test-sets))
 - [x] A default configuration file for a fair comparison
 
 ## 📋Guidance table
@@ -98,6 +99,7 @@ For your convenience, we provide the link of existing synthetic FR datasets for 
 | DigiFace | https://arxiv.org/abs/2210.02579 | - | [GitHub](https://github.com/microsoft/DigiFace1M) |
 | SFace | https://arxiv.org/abs/2206.10520 | 77.71 | [GitHub](https://github.com/fdbtrs/SFace-Privacy-friendly-and-Accurate-Face-Recognition-using-Synthetic-Data) |
 | SynFace | https://arxiv.org/abs/2108.07960 | 74.75 | [GitHub](https://github.com/haibo-qiu/SynFace) |
+
 Note that [CemiFace](https://github.com/szlbiubiubiu/CemiFace) can be a candidate, but you must drop the real identities out of the dataset first.
 ### Training sets
 
