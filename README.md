@@ -38,23 +38,23 @@ pip install -r requirements.txt
 ```
 ## ⚔Competition
 ### Test resources
-There are two test sets used in the competition, testA and testB, where **test A** is for getting the sense of the dataset quality and **test B** is for the determination of challenge awards.
-- Test A: [Google Drive](https://drive.google.com/file/d/1lnTrlXOOyKA-RcgKxGc-jpugTY6Dsh9y/view?usp=drive_link); [百度云](https://pan.baidu.com/s/1_1Ct3N-igm92e7832iBjsw) [提取码: jyyr]
-- Test B: Reserved for now.
+There are two datasets used in the competition, validation and test, where **validation** is for getting the sense of the dataset quality and **test** is for the determination of challenge awards.
+- Validation: [Google Drive](https://drive.google.com/file/d/1lnTrlXOOyKA-RcgKxGc-jpugTY6Dsh9y/view?usp=drive_link); [百度云](https://pan.baidu.com/s/1_1Ct3N-igm92e7832iBjsw) [提取码: jyyr]
+- Test: Reserved for now.
 ### Synthetic dataset generation requirements
 - The dataset scale can be 10K IDs (up to 0.5M images), 20K IDs (up to 1M images), and 100K IDs (up to 5M images).
 - **No real identities.**
 ### Submission guidance
-1. After downloading the testA.xz / testB.xz, please referring to the given command line to extract the test set.
+1. After downloading the validation.xz / test.xz, please referring to the given command line to extract the test set.
 ```bash
-python extract_test_file.py testA.xz testA
+python extract_test_file.py validation.xz validation
 ```
 2. Train your own face recognition model. Please read [training guidance](#train-your-own-model) carefully!
 3. To get the result file for submission, please referring to the given command line to get the result file.
 ```
 python3 get_submission_file.py \
 --model_path path/of/the/weights \
---image_paths testA/images.npy \
+--image_paths validation/images.npy \
 --scale 10K
 ```
 An example of the content in result.txt
@@ -88,7 +88,7 @@ An example of the content in result.txt
 8.933541774749755859e-01
 8.956598639488220215e-01
 ```
-4. Once you submit the testA_scale_result.txt or testB_scale_result.txt to [Codalab](https://codalab.lisn.upsaclay.fr/competitions/10221), the accuracy will be automatically calculated and reported. **Note that datasets with different scales will be reported separately.**
+4. Once you submit the validation_scale_result.txt or test_scale_result.txt to [Codalab](https://codalab.lisn.upsaclay.fr/competitions/10221), the accuracy will be automatically calculated and reported. **Note that datasets with different scales will be reported separately.**
 5. Have fun!
 ## Dataset preparation
 For your convenience, we provide the link of existing synthetic FR datasets for you to have an easy start. The accuracy values of 0.5M scale are copied from the original paper for your reference. 
