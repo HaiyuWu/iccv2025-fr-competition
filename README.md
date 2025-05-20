@@ -1,7 +1,7 @@
 
 # DataCV Challenge @ ICCV 2025 📢
 
-This repository provides the FR training code for synthetic FR dataset generation competition in [DataCV workshop @ ICCV2025]().
+This repository provides the FR training code for synthetic FR dataset generation competition in [DataCV workshop @ ICCV2025](https://sites.google.com/view/datacv-iccv25/challenge).
 
 ### What is provided?
 - [x] Test sets for competition ([click](#competition))
@@ -88,7 +88,7 @@ An example of the content in result.txt
 8.933541774749755859e-01
 8.956598639488220215e-01
 ```
-4. Once you submit the validation_scale_result.txt or test_scale_result.txt to [Codalab](https://codalab.lisn.upsaclay.fr/competitions/22894?secret_key=8cf9c884-6bf8-4a69-8782-d0f266a5b747), the accuracy will be automatically calculated and reported. **Note that datasets with different scales will be reported separately.**
+4. Once you submit the validation_scale_result.txt or test_scale_result.txt to [Codalab](https://codalab.lisn.upsaclay.fr/competitions/22954), the accuracy will be automatically calculated and reported. **Note that datasets with different scales will be reported separately.**
 5. Have fun!
 ## Dataset preparation
 For your convenience, we provide the link of existing synthetic FR datasets for you to have an easy start. The accuracy values of 0.5M scale are copied from the original paper for your reference. 
