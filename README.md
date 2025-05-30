@@ -55,7 +55,7 @@ python extract_test_file.py validation.xz validation
 python3 get_submission_file.py \
 --model_path path/of/the/weights \
 --image_paths validation/images.npy \
---scale 10K
+--dataset_scale 10K
 ```
 An example of the content in result.txt
 ```text
