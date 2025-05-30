@@ -49,7 +49,7 @@ There are two datasets used in the competition, validation and test, where **val
 ```bash
 python extract_test_file.py validation.xz validation
 ```
-2. Train your own face recognition model. Please read [training guidance](#train-your-own-model) carefully!
+2. Train your own face recognition model. Please read [training guidance](#fr-model-training) carefully!
 3. To get the result file for submission, please referring to the given command line to get the result file.
 ```
 python3 get_submission_file.py \
