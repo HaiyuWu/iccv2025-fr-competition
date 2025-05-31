@@ -26,7 +26,7 @@ This repository provides the FR training code for synthetic FR dataset generatio
 ## 📦Environment
 I suggest you to use Anaconda to better control the environments
 ```
-conda create -n fr_training python=3.10
+conda create -n fr_training python=3.10 -y
 conda activate fr_training
 ```
 Then clone the package and use pip to install the dependencies
