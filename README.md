@@ -20,11 +20,12 @@ This repository provides the FR training code for synthetic FR dataset generatio
   * [Test sets](#test-sets)
 - [FR model training](#fr-model-training)
 - [Acknowledgement](#acknowledgement)
+- [Q&A](#qa)
 - [License](#license)
   <!--te-->
 
 ## 📦Environment
-I suggest you to use Anaconda to better control the environments
+I suggest you use Anaconda to better control the environments
 ```
 conda create -n fr_training python=3.10 -y
 conda activate fr_training
@@ -118,7 +119,7 @@ config.train_source = "path/to/.txt/file"
 ```
 **Please ensure that only image files are inside the resource folder when using file_path_extract.py.**
 ### Test sets
-For your convenience, some test sets commonly-used test sets, *e.g.*, LFW, CFP-FP, CALFW, CPLFW, AgeDB-30, can be downloaded [here](https://drive.google.com/file/d/1l7XmqzIZKdKVqu0cOS2EI0bL_9_-wIrc/view?usp=drive_link).
+For your convenience, some test sets commonly used test sets, *e.g.*, LFW, CFP-FP, CALFW, CPLFW, AgeDB-30, can be downloaded [here](https://drive.google.com/file/d/1l7XmqzIZKdKVqu0cOS2EI0bL_9_-wIrc/view?usp=drive_link).
 Extract the compressed file then you can simply run [prepare_test_images.py](https://github.com/HaiyuWu/SOTA-FR-train-and-test/blob/main/utils/prepare_test_images.py) to get datasets ready to test
 ```
 python3 utils/prepare_test_images.py \
@@ -126,7 +127,7 @@ python3 utils/prepare_test_images.py \
 --destination ./test_set_package_5 \
 --datasets lfw cfp_fp agedb_30 calfw cplfw
 ```
-If you use different destination, please change the corresponding configuration in [./configs/arcface_r50_default.py](./configs/arcface_r50_default.py).
+If you use a different destination, please change the corresponding configuration in [./configs/arcface_r50_default.py](./configs/arcface_r50_default.py).
 ## FR model training
 Training command line with 4 GPUs:
 ```
@@ -135,8 +136,17 @@ torchrun --nproc_per_node=4 train.py --config_file ./configs/arcface_r50_default
 ### ❗Note that, you are not supposed to change any training hyperparameters❗
 
 ### Acknowledgement
-The code is mainly based one [SOTA-Face-Recognition-Train-and-Test](https://github.com/HaiyuWu/SOTA-Face-Recognition-Train-and-Test)
+The code is mainly based on [SOTA-Face-Recognition-Train-and-Test](https://github.com/HaiyuWu/SOTA-Face-Recognition-Train-and-Test)
 
+### Q&A
+1. Do I have to submit in all scales? \
+Answer: No, choosing one or more scales is fine.
+2. Can I use the available synthetic training sets? \
+Answer: Yes, any of the available synthetic training sets are ok to be used.
+3. What is the prize of the winner? \
+Answer: The top two teams that achieve the highest accuracy and the teams that achieve higher accuracy than the baseline can directly publish their writeup at the workshop.
+
+If you have other questions, please feel free to contact me at haiyupersonal@gmail.com
 
 ## License
 [MIT license](./license.md)
