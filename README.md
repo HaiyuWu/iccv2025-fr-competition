@@ -39,7 +39,7 @@ pip install -r requirements.txt
 ### Test resources
 There are two datasets used in the competition, validation and test, where **validation** is for getting the sense of the dataset quality and **test** is for the determination of challenge awards.
 - Validation: [Google Drive](https://drive.google.com/file/d/1lnTrlXOOyKA-RcgKxGc-jpugTY6Dsh9y/view?usp=drive_link); [百度云](https://pan.baidu.com/s/1_1Ct3N-igm92e7832iBjsw) [提取码: jyyr]
-- Test: Reserved for now.
+- Test: [Google Drive](https://drive.google.com/file/d/1AtwShhIf_9AySJGMFRPLxnEzYCMxmbjL/view?usp=drive_link); [百度云](https://pan.baidu.com/s/1pF9AchjeYnNAejdymUO4Xw) [提取码: apty]
 ### Synthetic dataset generation requirements
 - The dataset scale can be 10K IDs (up to 0.5M images), 20K IDs (up to 1M images), and 100K IDs (up to 5M images).
 - **No real identities.**
