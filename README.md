@@ -46,17 +46,17 @@ There are two datasets used in the competition, validation and test, where **val
 ### Submission guidance
 1. After downloading the validation.xz / test.xz, please referring to the given command line to extract the test set.
 ```bash
-python extract_test_file.py validation.xz validation
+python extract_test_file.py test.xz test
 ```
 2. Train your own face recognition model. Please read [training guidance](#fr-model-training) carefully!
 3. To get the result file for submission, please referring to the given command line to get the result file.
 ```
 python3 get_submission_file.py \
 --model_path path/of/the/weights \
---image_paths validation/images.npy \
+--image_paths test/images.npy \
 --dataset_scale 10K
 ```
-An example of the content in validation_[scale]_result.txt
+An example of the content in test_[scale]_result.txt
 ```text
 1.663888216018676758e+00
 1.565627694129943848e+00
@@ -87,7 +87,7 @@ An example of the content in validation_[scale]_result.txt
 8.933541774749755859e-01
 8.956598639488220215e-01
 ```
-4. Compress the validation_[scale]_result.txt to a .zip file, e.g., result.zip.
+4. Compress the test_[scale]_result.txt to a .zip file, e.g., result.zip.
 5. Submit the .zip file to [Codalab](https://codalab.lisn.upsaclay.fr/competitions/22954) and the accuracy will be automatically calculated and reported. **Note that datasets with different scales will be reported separately.**
 6. Have fun!
 ## Dataset preparation
